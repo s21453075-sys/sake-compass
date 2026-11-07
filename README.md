@@ -9,18 +9,18 @@
 | フロントエンド | HTML / CSS / JavaScript（Vanilla JS） |
 | バックエンド | Java 11 / Spring Boot 2.7.18 / Spring Web |
 | データアクセス | Spring Data JPA |
-| データベース | H2 Database（ファイル保存） |
+| データベース | PostgreSQL（本番環境） / H2 Database（ローカル開発） |
 | 入力検証 | Bean Validation |
 | ビルド | Apache Maven |
 
-画面のJavaScriptがfetchでSpring Boot REST APIを呼び、APIがJPAを通じてH2データベースを操作します。
+画面のJavaScriptがfetchでSpring Boot REST APIを呼び、APIがJPAを通じてデータベースを操作します。本番のPostgreSQLは `DATABASE_URL` から設定し、ローカル環境ではH2を使用します。
 
 ## 機能
 
 - 味わいカテゴリで銘柄を絞り込む
 - DBから銘柄を読み込んで一覧表示
 - 銘柄情報の登録と削除
-- H2のファイルDBに保存し、再起動後も保持
+- 本番環境ではPostgreSQL、ローカル開発ではH2に保存
 - 初回起動時にサンプル10銘柄を登録
 
 登録項目: 銘柄名、蔵元、産地、種類、味の説明、味わいカテゴリ、香り、飲みごたえ、料理、画像URL、商品情報URL。
@@ -82,7 +82,7 @@ erDiagram
 .\mvnw.cmd spring-boot:run
 ~~~
 
-起動後に http://localhost:8080/ を開きます。JSON一覧は http://localhost:8080/api/sakes です。H2 Consoleは http://localhost:8080/h2-console です。JDBC URLは jdbc:h2:file:./data/sake_compass、ユーザー名は sa、パスワードは空です。
+起動後に http://localhost:8080/ を開きます。JSON一覧は http://localhost:8080/api/sakes です。H2 Consoleは http://localhost:8080/h2-console です。ローカルのJDBC URLは jdbc:h2:file:./data/sake_compass、ユーザー名は sa、パスワードは空です。
 
 ビルド:
 
@@ -91,10 +91,17 @@ erDiagram
 java -jar target/sake-compass-1.0.0.jar
 ~~~
 
+## Renderでの本番公開
+
+ルートの `render.yaml` はSpring BootアプリとPostgreSQLを同じリージョンに作成し、`DATABASE_URL` を自動接続する設定です。Renderのダッシュボードから「New > Blueprint Instance」を選び、この公開リポジトリを指定して設定を適用するとデプロイできます。デプロイ後に表示される `.onrender.com` URLがアプリの公開URLです。
+
+この設定はWebサービス `0.5c-512mb`（約7米ドル/月）とPostgreSQL `0.1c-256mb`（約6米ドル/月）を使います。合計の目安は約13米ドル/月で、追加ストレージや帯域利用などで変わる場合があります。適用前にRenderの画面で現在の料金を確認してください。Renderの無料インスタンスは休止やDBの有効期限があるため、この本番構成には含めていません。
+
 ## 画面証跡
 
-アプリ起動後、画面全体のスクリーンショットを docs/screenshots/app-full-screen.png に保存して提出資料に添付してください。
+デプロイ後に公開URLをブラウザーで開き、画面全体のスクリーンショットを取得して提出資料に添付してください。
 
 ## 銘柄・画像について
 
-サンプル10銘柄を初期データとして登録しています。味の説明は各蔵元・商品案内を参考にした目安です。画像は外部サイトから読み込みます。お酒は20歳になってから。飲酒運転は法律で禁じられています。
+サンプル10銘柄を初期データとして登録しています。味の説明は各蔵元・商品案内を参考にした目安です。画像は外部サイトから読み込みます。Renderは[料金](https://render.com/pricing)が変更される場合があります。お酒は20歳になってから。飲酒運転は法律で禁じられています。
+
