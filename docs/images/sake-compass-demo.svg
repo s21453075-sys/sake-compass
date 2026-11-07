@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="900" viewBox="0 0 1440 900" role="img" aria-labelledby="title desc">
+  <title id="title">SAKE compass アプリ画面デモ</title>
+  <desc id="desc">好みの味わいから日本酒を選び、銘柄を登録できるSAKE compassの画面イメージ</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f7f3e9"/><stop offset="1" stop-color="#eee5d7"/></linearGradient>
+    <linearGradient id="hero" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#1e3c34"/><stop offset="1" stop-color="#335a49"/></linearGradient>
+    <linearGradient id="bottle" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#d0ba85"/><stop offset=".45" stop-color="#f6e9c4"/><stop offset="1" stop-color="#b29862"/></linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#263c32" flood-opacity=".09"/></filter>
+  </defs>
+  <rect width="1440" height="900" fill="url(#bg)"/>
+  <rect x="0" y="0" width="1440" height="62" fill="#fffdf8"/>
+  <path d="M0 61.5h1440" stroke="#e9e1d4"/>
+  <text x="86" y="39" font-family="'Yu Gothic',Meiryo,sans-serif" font-size="22" font-weight="700" fill="#203c33">酒 SAKE compass</text>
+  <text x="1040" y="38" font-family="'Yu Gothic',Meiryo,sans-serif" font-size="14" fill="#485b50">銘柄を探す</text>
+  <text x="1150" y="38" font-family="'Yu Gothic',Meiryo,sans-serif" font-size="14" fill="#485b50">銘柄を登録</text>
+  <text x="1267" y="38" font-family="'Yu Gothic',Meiryo,sans-serif" font-size="14" fill="#485b50">アプリについて</text>
+  <rect x="72" y="92" width="1296" height="252" rx="18" fill="url(#hero)"/>
+  <circle cx="1222" cy="200" r="127" fill="#fff" opacity=".045"/><circle cx="1280" cy="274" r="74" fill="#fff" opacity=".04"/>
+  <text x="126" y="146" font-family="Arial,sans-serif" font-size="12" letter-spacing="3" fill="#dbb97b">YOUR FIRST SAKE, MADE SIMPLE</text>
+  <text x="126" y="210" font-family="'Yu Gothic',Meiryo,sans-serif" font-size="38" font-weight="700" fill="#fffaf0">今夜の一杯を、</text>
+  <text x="126" y="260" font-family="'Yu Gothic',Meiryo,sans-serif" font-size="38" font-weight="700" fill="#fffaf0">好みから見つけよう。</text>
+  <text x="128" y="300" font-family="'Yu Gothic',Meiryo,sans-serif" font-size="15" fill="#e2e8df">好きな味わいを選ぶだけ。気になる銘柄を見つけましょう。</text>
+  <text x="1175" y="230" font-family="serif" font-size="82" fill="#d7bd88">❧</text>
+  <text x="1206" y="266" font-family="'Yu Gothic',Meiryo,sans-serif" font-size="25" font-weight="700" fill="#f8f0dc">酒</text>
+  <text x="1115" y="297" font-family="Arial,sans-serif" font-size="10" letter-spacing="2" fill="#d5dfd6">A LITTLE GUIDE TO SAKE</text>
+  <text x="76" y="402" font-family="Arial,sans-serif" font-size="11" letter-spacing="3" fill="#a87e44">FIND YOUR TASTE</text>
+  <text x="76" y="444" font-family="'Yu Gothic',Meiryo,sans-serif" font-size="27" font-weight="700" fill="#263a31">どんな味わいが好き？</text>
+  <rect x="76" y="468" width="72" height="34" rx="17" fill="#29483c"/><text x="94" y="490" font-family="'Yu Gothic',Meiryo,sans-serif" font-size="13" fill="#fff">すべて</text>
+  <rect x="159" y="468" width="138" height="34" rx="17" fill="#fffdf8" stroke="#ddd3c3"/><text x="178" y="490" font-family="'Yu Gothic',Meiryo,sans-serif" font-size="13" fill="#44564b">華やか・果実香</text>
+  <rect x="308" y="468" width="128" height="34" rx="17" fill="#fffdf8" stroke="#ddd3c3"/><text x="327" y="490" font-family="'Yu Gothic',Meiryo,sans-serif" font-size="13" fill="#44564b">すっきり・軽快</text>
+  <rect x="447" y="468" width="116" height="34" rx="17" fill="#fffdf8" stroke="#ddd3c3"/><text x="466" y="490" font-family="'Yu Gothic',Meiryo,sans-serif" font-size="13" fill="#44564b">辛口・キレ</text>
+  <rect x="574" y="468" width="116" height="34" rx="17" fill="#fffdf8" stroke="#ddd3c3"/><text x="594" y="490" font-family="'Yu Gothic',Meiryo,sans-serif" font-size="13" fill="#44564b">米のうまみ</text>
+  <text x="1193" y="489" font-family="'Yu Gothic',Meiryo,sans-serif" font-size="13" fill="#6d796e">10銘柄を表示中</text>
+  <g filter="url(#shadow)">
+    <rect x="76" y="526" width="400" height="266" rx="14" fill="#fffdf9"/>
+    <rect x="494" y="526" width="400" height="266" rx="14" fill="#fffdf9"/>
+    <rect x="912" y="526" width="400" height="266" rx="14" fill="#fffdf9"/>
+  </g>
+  <rect x="94" y="544" width="126" height="230" rx="9" fill="#f1eadb"/>
+  <rect x="144" y="580" width="26" height="24" rx="6" fill="#c0a97b"/><path d="M139 604h36l9 22v96q0 9-9 9h-36q-9 0-9-9v-96z" fill="url(#bottle)" stroke="#bca779"/>
+  <rect x="140" y="641" width="34" height="49" rx="2" fill="#f8f3e7"/><text x="148" y="665" font-family="'Yu Gothic',Meiryo,sans-serif" font-size="12" font-weight="700" fill="#465346">獺祭</text><text x="147" y="681" font-family="Arial,sans-serif" font-size="8" fill="#746849">純米大吟醸</text>
+  <text x="239" y="568" font-family="'Yu Gothic',Meiryo,sans-serif" font-size="12" fill="#7e8174">山口県 · 旭酒造</text>
+  <text x="239" y="602" font-family="'Yu Gothic',Meiryo,sans-serif" font-size="19" font-weight="700" fill="#263a31">獺祭 純米大吟醸45</text>
+  <text x="239" y="632" font-family="'Yu Gothic',Meiryo,sans-serif" font-size="12" fill="#59665b">華やかな香りと米由来の</text><text x="239" y="650" font-family="'Yu Gothic',Meiryo,sans-serif" font-size="12" fill="#59665b">繊細な甘み。</text>
+  <rect x="239" y="668" width="98" height="25" rx="12" fill="#f0e7d5"/><text x="252" y="685" font-family="'Yu Gothic',Meiryo,sans-serif" font-size="11" fill="#75603a">華やか・果実香</text>
+  <text x="239" y="720" font-family="'Yu Gothic',Meiryo,sans-serif" font-size="11" fill="#727b70">香り 5/5　飲みごたえ 2/5</text>
+  <text x="239" y="750" font-family="'Yu Gothic',Meiryo,sans-serif" font-size="11" fill="#526653">合う料理：刺身・寿司</text>
+  <rect x="512" y="544" width="126" height="230" rx="9" fill="#f1eadb"/>
+  <rect x="562" y="580" width="26" height="24" rx="6" fill="#8d9a83"/><path d="M557 604h36l9 22v96q0 9-9 9h-36q-9 0-9-9v-96z" fill="#dfe4d4" stroke="#a4ad96"/>
+  <rect x="558" y="641" width="34" height="49" rx="2" fill="#f8f6eb"/><text x="565" y="665" font-family="'Yu Gothic',Meiryo,sans-serif" font-size="12" font-weight="700" fill="#465346">久保田</text><text x="565" y="681" font-family="Arial,sans-serif" font-size="8" fill="#746849">千寿 吟醸</text>
+  <text x="657" y="568" font-family="'Yu Gothic',Meiryo,sans-serif" font-size="12" fill="#7e8174">新潟県 · 朝日酒造</text>
+  <text x="657" y="602" font-family="'Yu Gothic',Meiryo,sans-serif" font-size="19" font-weight="700" fill="#263a31">久保田 千寿 吟醸</text>
+  <text x="657" y="632" font-family="'Yu Gothic',Meiryo,sans-serif" font-size="12" fill="#59665b">穏やかな香りとすっきりした</text><text x="657" y="650" font-family="'Yu Gothic',Meiryo,sans-serif" font-size="12" fill="#59665b">味わい。食事に合わせやすい。</text>
+  <rect x="657" y="668" width="88" height="25" rx="12" fill="#e5ece5"/><text x="670" y="685" font-family="'Yu Gothic',Meiryo,sans-serif" font-size="11" fill="#526653">すっきり・辛口</text>
+  <text x="657" y="720" font-family="'Yu Gothic',Meiryo,sans-serif" font-size="11" fill="#727b70">香り 2/5　飲みごたえ 2/5</text>
+  <text x="657" y="750" font-family="'Yu Gothic',Meiryo,sans-serif" font-size="11" fill="#526653">合う料理：刺身・焼き魚</text>
+  <rect x="930" y="544" width="126" height="230" rx="9" fill="#f1eadb"/>
+  <rect x="980" y="580" width="26" height="24" rx="6" fill="#85704f"/><path d="M975 604h36l9 22v96q0 9-9 9h-36q-9 0-9-9v-96z" fill="#cfbd91" stroke="#aa9668"/>
+  <rect x="976" y="641" width="34" height="49" rx="2" fill="#f8f3e7"/><text x="984" y="665" font-family="'Yu Gothic',Meiryo,sans-serif" font-size="12" font-weight="700" fill="#465346">八海山</text><text x="982" y="681" font-family="Arial,sans-serif" font-size="8" fill="#746849">特別本醸造</text>
+  <text x="1075" y="568" font-family="'Yu Gothic',Meiryo,sans-serif" font-size="12" fill="#7e8174">新潟県 · 八海醸造</text>
+  <text x="1075" y="602" font-family="'Yu Gothic',Meiryo,sans-serif" font-size="19" font-weight="700" fill="#263a31">八海山 特別本醸造</text>
+  <text x="1075" y="632" font-family="'Yu Gothic',Meiryo,sans-serif" font-size="12" fill="#59665b">やわらかな口当たりと淡麗な</text><text x="1075" y="650" font-family="'Yu Gothic',Meiryo,sans-serif" font-size="12" fill="#59665b">味わい。冷酒でも燗でも。</text>
+  <rect x="1075" y="668" width="88" height="25" rx="12" fill="#e5ece5"/><text x="1088" y="685" font-family="'Yu Gothic',Meiryo,sans-serif" font-size="11" fill="#526653">すっきり・辛口</text>
+  <text x="1075" y="720" font-family="'Yu Gothic',Meiryo,sans-serif" font-size="11" fill="#727b70">香り 2/5　飲みごたえ 2/5</text>
+  <text x="1075" y="750" font-family="'Yu Gothic',Meiryo,sans-serif" font-size="11" fill="#526653">合う料理：刺身・焼き魚</text>
+  <text x="76" y="846" font-family="'Yu Gothic',Meiryo,sans-serif" font-size="12" fill="#667369">好みから見つける日本酒ガイド · 銘柄の登録・表示・削除に対応</text>
+</svg>
+
