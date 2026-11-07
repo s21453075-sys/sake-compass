@@ -7,10 +7,41 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import java.util.Arrays;
+import java.net.URI;
+import java.net.URLDecoder;
+import java.nio.charset.StandardCharsets;
 
 @SpringBootApplication
 public class SakeCompassApplication {
-    public static void main(String[] args) { new java.io.File("data").mkdirs(); SpringApplication.run(SakeCompassApplication.class, args); }
+    public static void main(String[] args) {
+        new java.io.File("data").mkdirs();
+        configureDatabaseFromEnvironment();
+        SpringApplication.run(SakeCompassApplication.class, args);
+    }
+
+    private static void configureDatabaseFromEnvironment() {
+        String databaseUrl = System.getenv("DATABASE_URL");
+        if (databaseUrl == null || databaseUrl.trim().isEmpty()) return;
+
+        URI uri = URI.create(databaseUrl.replaceFirst("^postgres(ql)?://", "http://"));
+        String[] credentials = uri.getUserInfo() == null ? new String[0] : uri.getUserInfo().split(":", 2);
+        if (uri.getHost() == null || credentials.length != 2) {
+            throw new IllegalArgumentException("DATABASE_URL の形式を確認してください。");
+        }
+
+        String jdbcUrl = "jdbc:postgresql://" + uri.getHost()
+            + (uri.getPort() > 0 ? ":" + uri.getPort() : "") + uri.getRawPath();
+        if (uri.getRawQuery() != null) jdbcUrl += "?" + uri.getRawQuery();
+
+        System.setProperty("spring.datasource.url", jdbcUrl);
+        System.setProperty("spring.datasource.username", decodeUriPart(credentials[0]));
+        System.setProperty("spring.datasource.password", decodeUriPart(credentials[1]));
+        System.setProperty("spring.datasource.driver-class-name", "org.postgresql.Driver");
+    }
+
+    private static String decodeUriPart(String value) {
+        return URLDecoder.decode(value.replace("+", "%2B"), StandardCharsets.UTF_8);
+    }
 
     @Bean
     CommandLineRunner seedCatalog(SakeRepository repository) {
@@ -40,3 +71,4 @@ public class SakeCompassApplication {
         return sake;
     }
 }
+
