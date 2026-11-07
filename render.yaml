@@ -8,5 +8,13 @@ services:
     healthCheckPath: /api/sakes
     envVars:
       - key: DATABASE_URL
-        sync: false
+        fromDatabase:
+          name: sake-compass-db
+          property: connectionString
 
+databases:
+  - name: sake-compass-db
+    databaseName: sake_compass
+    user: sake_compass
+    plan: free
+    region: singapore
