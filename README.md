@@ -13,7 +13,7 @@
 | 入力検証 | Bean Validation |
 | ビルド | Apache Maven |
 
-画面のJavaScriptがfetchでSpring Boot REST APIを呼び、APIがJPAを通じてデータベースを操作します。本番のPostgreSQLは `DATABASE_URL` から設定し、ローカル環境ではH2を使用します。
+画面のJavaScriptがfetchでSpring Boot REST APIを呼び、APIがJPAを通じてデータベースを操作します。公開環境ではNeon PostgreSQLの `DATABASE_URL` を読み込み、ローカル環境ではH2を使用します。
 
 ## 機能
 
@@ -91,11 +91,15 @@ erDiagram
 java -jar target/sake-compass-1.0.0.jar
 ~~~
 
-## Renderでの本番公開
+## 無料枠での公開
 
-ルートの `render.yaml` はSpring BootアプリとPostgreSQLを同じリージョンに作成し、`DATABASE_URL` を自動接続する設定です。Renderのダッシュボードから「New > Blueprint Instance」を選び、この公開リポジトリを指定して設定を適用するとデプロイできます。デプロイ後に表示される `.onrender.com` URLがアプリの公開URLです。
+Renderの無料WebサービスとNeonの無料PostgreSQLを組み合わせる構成です。`render.yaml` を使って公開すると、デプロイ時にRenderが `DATABASE_URL` を尋ねます。Neonで作成したPostgreSQL接続URLを登録してください。RenderのWebサービスURLでアプリを公開できます。
 
-この設定はWebサービス `0.5c-512mb`（約7米ドル/月）とPostgreSQL `0.1c-256mb`（約6米ドル/月）を使います。合計の目安は約13米ドル/月で、追加ストレージや帯域利用などで変わる場合があります。適用前にRenderの画面で現在の料金を確認してください。Renderの無料インスタンスは休止やDBの有効期限があるため、この本番構成には含めていません。
+1. [Neon](https://console.neon.tech/)で無料プロジェクトを作り、PostgreSQLの接続URLをコピーします。Freeプランは無料で、プロジェクトごとに月100 CU時間・1GBのDB容量が含まれます。
+2. [RenderのBlueprint](https://render.com/deploy?repo=https://github.com/s21453075-sys/sake-compass)を開き、GitHubの `sake-compass` リポジトリを使ってデプロイします。
+3. `DATABASE_URL` を求められたら、手順1の接続URLを設定します。デプロイ完了後、Renderが表示するURLを開きます。
+
+Render無料Webサービスは15分間アクセスがないと休止し、次回アクセス時に起動するため表示に時間がかかる場合があります。Renderの無料サービスとNeonのFreeプランには利用量などの上限があります。料金・上限は各サービスの案内を確認してください。 [Render無料枠](https://render.com/docs/free) [Neon料金](https://neon.com/pricing)
 
 ## 画面証跡
 
@@ -103,5 +107,5 @@ java -jar target/sake-compass-1.0.0.jar
 
 ## 銘柄・画像について
 
-サンプル10銘柄を初期データとして登録しています。味の説明は各蔵元・商品案内を参考にした目安です。画像は外部サイトから読み込みます。Renderは[料金](https://render.com/pricing)が変更される場合があります。お酒は20歳になってから。飲酒運転は法律で禁じられています。
+サンプル10銘柄を初期データとして登録しています。味の説明は各蔵元・商品案内を参考にした目安です。画像は外部サイトから読み込みます。お酒は20歳になってから。飲酒運転は法律で禁じられています。
 
