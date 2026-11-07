@@ -2,20 +2,11 @@ services:
   - type: web
     name: sake-compass
     runtime: docker
-    plan: 0.5c-512mb
+    plan: free
     region: singapore
     dockerfilePath: ./Dockerfile
     healthCheckPath: /api/sakes
     envVars:
       - key: DATABASE_URL
-        fromDatabase:
-          name: sake-compass-db
-          property: connectionString
-
-databases:
-  - name: sake-compass-db
-    databaseName: sake_compass
-    user: sake_compass
-    plan: 0.1c-256mb
-    region: singapore
+        sync: false
 
