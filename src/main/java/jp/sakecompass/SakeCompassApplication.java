@@ -23,6 +23,9 @@ public class SakeCompassApplication {
         String databaseUrl = System.getenv("DATABASE_URL");
         if (databaseUrl == null || databaseUrl.trim().isEmpty()) return;
 
+        if (!databaseUrl.startsWith("postgres://") && !databaseUrl.startsWith("postgresql://")) {
+            throw new IllegalArgumentException("DATABASE_URL はPostgreSQLの接続URLを指定してください。");
+        }
         URI uri = URI.create(databaseUrl.replaceFirst("^postgres(ql)?://", "http://"));
         String[] credentials = uri.getUserInfo() == null ? new String[0] : uri.getUserInfo().split(":", 2);
         if (uri.getHost() == null || credentials.length != 2) {
@@ -30,8 +33,8 @@ public class SakeCompassApplication {
         }
 
         String jdbcUrl = "jdbc:postgresql://" + uri.getHost()
-            + (uri.getPort() > 0 ? ":" + uri.getPort() : "") + uri.getRawPath();
-        if (uri.getRawQuery() != null) jdbcUrl += "?" + uri.getRawQuery();
+            + (uri.getPort() > 0 ? ":" + uri.getPort() : "") + uri.getRawPath()
+            + "?sslmode=require";
 
         System.setProperty("spring.datasource.url", jdbcUrl);
         System.setProperty("spring.datasource.username", decodeUriPart(credentials[0]));
