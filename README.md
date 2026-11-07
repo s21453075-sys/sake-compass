@@ -6,7 +6,9 @@
 
 **アプリを開く:** [https://sake-compass.onrender.com](https://sake-compass.onrender.com) · **銘柄データ/API:** [銘柄一覧を見る](https://sake-compass.onrender.com/api/sakes)
 
-![SAKE compassの画面デモ。味わいから日本酒を探し、銘柄を登録できる画面](docs/images/sake-compass-demo.svg)
+![SAKE compassの画面デモイメージ。味わいから日本酒を探し、銘柄を登録できる画面](docs/images/sake-compass-demo.svg)
+
+※README用に作成した画面イメージです。実際の画面は[公開アプリ](https://sake-compass.onrender.com)で確認できます。
 
 ## アプリケーションの概要
 
@@ -35,7 +37,7 @@
 | バックエンド/API | Java 11、Spring Boot 2.7.18、Spring Web REST API |
 | データアクセス | Spring Data JPA、Hibernate |
 | データベース | PostgreSQL（公開環境）、H2 Database（ローカル環境） |
-| 入力検証 | Jakarta Bean Validation（Spring Boot 2.7） |
+| 入力検証 | Bean Validation（`javax.validation`） |
 | ビルド・実行 | Apache Maven、Docker |
 | ホスティング | Render Web Service、Render PostgreSQL |
 
@@ -43,11 +45,11 @@
 
 ## ER図（データベース設計）
 
-現状の登録・表示・削除対象は`SAKE`テーブルです。テーブル間の外部キー関係はありません。
+現状の登録・表示・削除対象は`SAKES`テーブルです。テーブル間の外部キー関係はありません。
 
 ~~~mermaid
 erDiagram
-    SAKE {
+    SAKES {
         BIGINT id PK "銘柄ID"
         VARCHAR name "銘柄名"
         VARCHAR brewery "蔵元"
