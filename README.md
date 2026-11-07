@@ -13,7 +13,7 @@
 | 入力検証 | Bean Validation |
 | ビルド | Apache Maven |
 
-画面のJavaScriptがfetchでSpring Boot REST APIを呼び、APIがJPAを通じてデータベースを操作します。公開環境ではNeon PostgreSQLの `DATABASE_URL` を読み込み、ローカル環境ではH2を使用します。
+画面のJavaScriptがfetchでSpring Boot REST APIを呼び、APIがJPAを通じてデータベースを操作します。公開環境ではRender PostgreSQLの `DATABASE_URL` を読み込み、ローカル環境ではH2を使用します。
 
 ## 機能
 
@@ -93,13 +93,9 @@ java -jar target/sake-compass-1.0.0.jar
 
 ## 無料枠での公開
 
-Renderの無料WebサービスとNeonの無料PostgreSQLを組み合わせる構成です。`render.yaml` を使って公開すると、デプロイ時にRenderが `DATABASE_URL` を尋ねます。Neonで作成したPostgreSQL接続URLを登録してください。RenderのWebサービスURLでアプリを公開できます。
+ルートの `render.yaml` はRenderの無料Webサービスと無料PostgreSQLを作り、DB接続も自動設定するBlueprintです。[RenderのBlueprint](https://render.com/deploy?repo=https://github.com/s21453075-sys/sake-compass)を開き、`sake-compass` リポジトリを選択してデプロイします。完了後に表示されるRender URLでアプリを開けます。
 
-1. [Neon](https://console.neon.tech/)で無料プロジェクトを作り、PostgreSQLの接続URLをコピーします。Freeプランは無料で、プロジェクトごとに月100 CU時間・1GBのDB容量が含まれます。
-2. [RenderのBlueprint](https://render.com/deploy?repo=https://github.com/s21453075-sys/sake-compass)を開き、GitHubの `sake-compass` リポジトリを使ってデプロイします。
-3. `DATABASE_URL` を求められたら、手順1の接続URLを設定します。デプロイ完了後、Renderが表示するURLを開きます。
-
-Render無料Webサービスは15分間アクセスがないと休止し、次回アクセス時に起動するため表示に時間がかかる場合があります。Renderの無料サービスとNeonのFreeプランには利用量などの上限があります。料金・上限は各サービスの案内を確認してください。 [Render無料枠](https://render.com/docs/free) [Neon料金](https://neon.com/pricing)
+無料Webサービスは15分アクセスがないと休止し、次のアクセス時に起動します。無料PostgreSQLは1GBで、作成から30日後に期限切れになります。提出・デモ用の無料公開として利用できますが、DBを継続利用する場合は期限前に有料プランへの変更が必要です。[Renderの無料枠と制限](https://render.com/docs/free)
 
 ## 画面証跡
 
